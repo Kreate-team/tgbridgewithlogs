@@ -1,0 +1,53 @@
+name: Deploy docs
+
+on:
+  push:
+    paths:
+      - 'docs/**'
+      - '.github/workflows/docs.yml'
+  # TODO: use pull_request_target
+  pull_request:
+    paths:
+      - 'docs/**'
+      - '.github/workflows/docs.yml'
+  workflow_dispatch: {}
+
+permissions:
+  packages: write
+
+jobs:
+  docs:
+    name: Build & deploy docs
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docs
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: GHCR login
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: docs
+          tags: ghcr.io/${{ github.repository }}:latest
+          push: true
+
+      - name: Deploy
+        env:
+          UPDATE_POST_KEY: ${{ secrets.UPDATE_POST_KEY }}
+        run: |
+          curl --request POST \
+               --url https://vhap-update.vanutp.dev/update \
+               --header "Content-Type: application/json" \
+               --data '{"key":"'$UPDATE_POST_KEY'"}' \
+               --fail

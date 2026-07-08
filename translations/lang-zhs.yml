@@ -1,0 +1,62 @@
+# Translations to other languages can be downloaded from https://github.com/vanutp/tgbridge
+telegram:
+  serverStarted: "✅ <b>服务器已启动！</b>"
+  serverStopped: "❌ <b>服务器已停止！</b>"
+  playerJoined: "🥳 <b>{username} 加入了游戏</b>"
+  playerJoinedFirstTime: "🥳 <b>{username} 首次加入了游戏</b>"
+  playerLeft: "😕 <b>{username} 离开了游戏</b>"
+  # This option uses MiniMessage formatting (see below for details)
+  playerDied: "☠️ <b><death_message></b>"
+  advancements:
+    regular: "😼 <b>{username} 获得进度 {title}</b>\n\n<i>{description}</i>"
+    goal: "🎯 <b>{username} 达成目标 {title}</b>\n\n<i>{description}</i>"
+    challenge: "🏅 <b>{username} 完成挑战 {title}</b>\n\n<i>{description}</i>"
+  playerList: "📝 <b>{count} 名玩家在线：</b> {usernames}"
+  playerListZeroOnline: "📝 <b>没有玩家在线</b>"
+  # Available placeholders: tps5s, tps10s, tps1m, tps5m, tps15m,
+  # mspt10sAvg, mspt1mAvg, mspt5mAvg
+  tps: "📊 <b>TPS：</b> <code>{tps10s}</code>\n⏱️ <b>MSPT：</b> <code>{mspt10sAvg}</code>"
+# This section uses MiniMessage formatting (in non-strict mode).
+# See https://docs.advntr.dev/minimessage/format.html for more information.
+# Additionally, {variable} syntax can be used instead of <variable> for plain-text placeholders.
+minecraft:
+  messageMeta:
+    reply: "<blue>[回复 <sender>：<text>]"
+    replyToMinecraft: "<blue>[回复 <text>]"
+    forward: "<gray>[转发自 <from>]"
+    viaBot: "<gray>[通过 @<bot_username>]"
+    pin: "<dark_aqua>[置顶了一条消息]"
+    # Wrapper for all media types
+    mediaFormatting: "<green><media>"
+    gif: "[GIF]"
+    document: "[文档]"
+    photo: "[图片]"
+    audio: "[音频]"
+    sticker: "[贴纸]"
+    video: "[视频]"
+    videoMessage: "[视频消息]"
+    voiceMessage: "[语音消息]"
+    poll: "[投票：<title>]"
+  messageFormatting:
+    linkFormatting: "<#7878ff><underlined><hover:show_text:'<green><url>'><click:open_url:'{url}'><text>"
+    mentionFormatting: "<#7878ff><hover:show_text:'<green>Shift+点击来艾特'><insert:{username}><text>"
+    hashtagFormatting: "<#7878ff><text>"
+    codeFormatting: "<gray><hover:show_text:'<green>点击复制'><click:copy_to_clipboard:'{text_plain}'><insert:'{text_plain}'><text>"
+    quoteFormatting: "<italic><text>"
+    spoilerFormatting: "<obfuscated><hover:show_text:'<text>'><text_plain>"
+  serviceMessages:
+    members:
+      joined: "<dark_purple>[加入了群组]"
+      left: "<dark_purple>[离开了群组]"
+      added: "<dark_purple>[将 <users> 添加到群组]"
+      removed: "<dark_purple>[将 <user> 从群组中移除]"
+    videoChat:
+      scheduled: "<light_purple>[安排了视频聊天]"
+      started: "<light_purple>[开始了视频聊天]"
+      ended: "<light_purple>[结束了视频聊天]"
+      invited: "<light_purple>[邀请 <users> 参加视频聊天]"
+    mute:
+      muted: "您将不再收到来自 Telegram 的消息"
+      unmuted: "您将收到来自 Telegram 的新消息"
+# Don't change the version manually
+version: 4

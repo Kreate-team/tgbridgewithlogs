@@ -1,0 +1,13 @@
+.idea/
+*.iml
+.DS_Store
+
+.gradle/
+.kotlin/
+build/
+run/
+
+.env
+.envrc
+test-servers/
+codegen/.venv
